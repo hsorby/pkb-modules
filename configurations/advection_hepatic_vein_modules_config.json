@@ -1,0 +1,184 @@
+[
+  {
+    "module_type": "advection",
+    "module_subtype": "hepatic_vein",
+    "module_format": "cellml",
+    "component_file": "advection.cellml",
+    "component_type": "advection",
+    "default_parameterisation": "hepatic_vein",
+    "licence": "Apache-2.0",
+    "creator": [],
+    "required_citations": [],
+    "entrance_ports": [],
+    "exit_ports": [],
+    "general_ports": [
+      {
+        "port_type": "c_K_cap_liver",
+        "variables": [
+          "c_K__up"
+        ],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "c_K_cap_body",
+        "variables": [
+          "c_K__down"
+        ],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "c_Glc_cap_liver",
+        "variables": [
+          "c_Glc__up"
+        ],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "c_Glc_cap_body",
+        "variables": [
+          "c_Glc__down"
+        ],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "c_Na_cap_liver",
+        "variables": [
+          "c_Na__up"
+        ],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "c_Na_cap_body",
+        "variables": [
+          "c_Na__down"
+        ],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "Q_Na_cap_liver",
+        "variables": [
+          "f_Na_up"
+        ],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "Q_Na_cap_body",
+        "variables": [
+          "f_Na_down"
+        ]
+      },
+      {
+        "port_type": "Q_K_cap_liver",
+        "variables": [
+          "f_K_up"
+        ],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "Q_K_cap_body",
+        "variables": [
+          "f_K_down"
+        ]
+      },
+      {
+        "port_type": "Q_Glc_cap_liver",
+        "variables": [
+          "f_Glc_up"
+        ],
+        "multi_port": "True"
+      },
+      {
+        "port_type": "Q_Glc_cap_body",
+        "variables": [
+          "f_Glc_down"
+        ]
+      }
+    ],
+    "variables_and_units": [
+      [
+        "f_Na_down",
+        "mM_per_s",
+        "access",
+        "variable"
+      ],
+      [
+        "Q_blood",
+        "L_per_s",
+        "access",
+        "constant"
+      ],
+      [
+        "c_Na__up",
+        "mM",
+        "access",
+        "boundary_condition"
+      ],
+      [
+        "volume",
+        "pL",
+        "access",
+        "constant"
+      ],
+      [
+        "c_Na__down",
+        "mM",
+        "access",
+        "boundary_condition"
+      ],
+      [
+        "f_Na_up",
+        "mM_per_s",
+        "access",
+        "variable"
+      ],
+      [
+        "f_K_down",
+        "mM_per_s",
+        "access",
+        "variable"
+      ],
+      [
+        "c_K__up",
+        "mM",
+        "access",
+        "boundary_condition"
+      ],
+      [
+        "c_K__down",
+        "mM",
+        "access",
+        "boundary_condition"
+      ],
+      [
+        "f_K_up",
+        "mM_per_s",
+        "access",
+        "variable"
+      ],
+      [
+        "f_Glc_down",
+        "mM_per_s",
+        "access",
+        "variable"
+      ],
+      [
+        "c_Glc__up",
+        "mM",
+        "access",
+        "boundary_condition"
+      ],
+      [
+        "c_Glc__down",
+        "mM",
+        "access",
+        "boundary_condition"
+      ],
+      [
+        "f_Glc_up",
+        "mM_per_s",
+        "access",
+        "variable"
+      ]
+    ]
+  }
+]
