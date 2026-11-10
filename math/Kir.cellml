@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cellml.org/cellml/2.0#" name="Kir" id="Kir">
+  <units name="dim">
+    <unit units="dimensionless"/>
+  </units>
+  <units name="mmol_per_l">
+    <unit prefix="milli" units="mole"/>
+    <unit exponent="-1" units="litre"/>
+  </units>
+  <units name="mM">
+    <unit units="mmol_per_l"/>
+  </units>
+  <units name="J_per_C">
+    <unit units="joule"/>
+    <unit exponent="-1" units="coulomb"/>
+  </units>
+  <units name="fmol">
+    <unit prefix="femto" units="mole"/>
+  </units>
+  <units name="mm2">
+    <unit exponent="2" prefix="milli" units="metre"/>
+  </units>
+  <units name="fmol_per_mm2_per_s">
+    <unit units="fmol"/>
+    <unit exponent="-1" units="mm2"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pL">
+    <unit prefix="pico" units="litre"/>
+  </units>
+  <units name="pL_per_s">
+    <unit units="pL"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pA_per_mm2">
+    <unit prefix="pico" units="ampere"/>
+    <unit exponent="-1" units="mm2"/>
+  </units>
+  <units name="C_per_mol">
+    <unit units="coulomb"/>
+    <unit exponent="-1" units="mole"/>
+  </units>
+  <units name="mol_per_fmol">
+    <unit units="mole"/>
+    <unit exponent="-1" units="fmol"/>
+  </units>
+  <units name="pA_per_A">
+    <unit prefix="pico" units="ampere"/>
+    <unit exponent="-1" units="ampere"/>
+  </units>
+  <component name="Kir" id="b4da60">
+    <variable name="Phi_Kir" units="dim" interface="public" id="b4da55"/>
+    <variable name="c_K_i" units="mM" interface="public" id="vih9ubdu7"/>
+    <variable name="K_i_Kir" units="mM" interface="public" id="b4da56"/>
+    <variable name="c_K_o" units="mM" interface="public" id="v3sjozu5o"/>
+    <variable name="K_o_Kir" units="mM" interface="public" id="b4da57"/>
+    <variable name="z6_Kir" units="dim" interface="public" id="b4da58"/>
+    <variable name="u_e" units="J_per_C" interface="public" id="vprh1t4fr"/>
+    <variable name="RTF" units="J_per_C" interface="public" id="b4da59"/>
+    <variable name="v_Kir_raw" units="fmol_per_mm2_per_s" interface="public" id="b4da5a"/>
+    <variable name="kappa_Kir" units="pL_per_s" interface="public" id="b4da5b"/>
+    <variable name="area" units="mm2" interface="public" id="vuhgy08cr"/>
+    <variable name="v_Kir" units="fmol_per_mm2_per_s" interface="public" id="b4da5c"/>
+    <variable name="Scale_Kir" units="dim" interface="public" id="b4da5d"/>
+    <variable name="v_K_Kir_i" units="fmol_per_mm2_per_s" interface="public" id="vb0p87qrp"/>
+    <variable name="v_K_Kir_o" units="fmol_per_mm2_per_s" interface="public" id="vp55np02w"/>
+    <variable name="v_e_Kir" units="pA_per_mm2" interface="public" id="v9xhn7nv1"/>
+    <variable name="F" units="C_per_mol" interface="public" id="b4da5e"/>
+    <variable name="u_rev_Kir" units="J_per_C" interface="public" id="b4da5f"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+      <apply>
+        <eq/>
+        <ci>Phi_Kir</ci>
+        <apply>
+          <plus/>
+          <cn cellml:units="dimensionless">1</cn>
+          <apply>
+            <divide/>
+            <ci>c_K_i</ci>
+            <ci>K_i_Kir</ci>
+          </apply>
+          <apply>
+            <times/>
+            <apply>
+              <divide/>
+              <ci>c_K_o</ci>
+              <ci>K_o_Kir</ci>
+            </apply>
+            <apply>
+              <exp/>
+              <apply>
+                <divide/>
+                <apply>
+                  <times/>
+                  <ci>z6_Kir</ci>
+                  <ci>u_e</ci>
+                </apply>
+                <ci>RTF</ci>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_Kir_raw</ci>
+        <apply>
+          <times/>
+          <apply>
+            <divide/>
+            <ci>kappa_Kir</ci>
+            <apply>
+              <times/>
+              <ci>Phi_Kir</ci>
+              <ci>area</ci>
+            </apply>
+          </apply>
+          <apply>
+            <minus/>
+            <ci>c_K_i</ci>
+            <apply>
+              <times/>
+              <ci>c_K_o</ci>
+              <apply>
+                <exp/>
+                <apply>
+                  <divide/>
+                  <apply>
+                    <minus/>
+                    <ci>u_e</ci>
+                  </apply>
+                  <ci>RTF</ci>
+                </apply>
+              </apply>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_Kir</ci>
+        <apply>
+          <times/>
+          <ci>v_Kir_raw</ci>
+          <ci>Scale_Kir</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_K_Kir_i</ci>
+        <apply>
+          <minus/>
+          <ci>v_Kir</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_K_Kir_o</ci>
+        <ci>v_Kir</ci>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_e_Kir</ci>
+        <apply>
+          <times/>
+          <ci>F</ci>
+          <cn cellml:units="mol_per_fmol" type="e-notation">1<sep/>-15</cn>
+          <ci>v_Kir</ci>
+          <cn cellml:units="pA_per_A" type="e-notation">1<sep/>9</cn>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>u_rev_Kir</ci>
+        <apply>
+          <times/>
+          <apply>
+            <minus/>
+            <ci>RTF</ci>
+          </apply>
+          <apply>
+            <ln/>
+            <apply>
+              <divide/>
+              <ci>c_K_i</ci>
+              <ci>c_K_o</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+    </math>
+  </component>
+</model>

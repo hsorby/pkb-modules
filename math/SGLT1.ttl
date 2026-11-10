@@ -1,0 +1,62 @@
+# The SGLT1 transporter; _i is the cytoplasm, _o the extracellular side.
+@prefix bqbiol: <http://biomodels.net/biology-qualifiers/> .
+@prefix semsim: <http://bime.uw.edu/semsim/> .
+@prefix opb: <https://identifiers.org/opb/OPB_> .
+@prefix chebi: <https://identifiers.org/chebi/CHEBI:> .
+@prefix go: <https://identifiers.org/go/GO:> .
+@prefix sbo: <https://identifiers.org/sbo/SBO:> .
+@prefix uniprot: <https://identifiers.org/uniprot/> .
+@prefix m: <./SGLT1.cellml#> .
+@prefix local: <./SGLT1.ttl#> .
+
+m:SGLT1 bqbiol:is uniprot:P13866 ;
+    bqbiol:isVersionOf go:0005412 .
+local:entity_self bqbiol:is uniprot:P13866 ;
+    bqbiol:isPartOf go:0005886 .
+local:outside bqbiol:is go:0005576 .
+local:inside bqbiol:is go:0005737 .
+
+m:vcjlo7ooe bqbiol:isVersionOf opb:00340 ;
+    bqbiol:isPropertyOf local:Glc_out .
+local:Glc_out bqbiol:is chebi:17634 ;
+    bqbiol:isPartOf local:outside .
+m:v15b0kmsm bqbiol:isVersionOf opb:00340 ;
+    bqbiol:isPropertyOf local:Na_out .
+local:Na_out bqbiol:is chebi:29101 ;
+    bqbiol:isPartOf local:outside .
+m:vhowdlv6r bqbiol:isVersionOf opb:00154 ;
+    bqbiol:isPropertyOf local:outside .
+m:vwjdcpxhn bqbiol:isVersionOf opb:00340 ;
+    bqbiol:isPropertyOf local:Glc_in .
+local:Glc_in bqbiol:is chebi:17634 ;
+    bqbiol:isPartOf local:inside .
+m:vjj6i9lec bqbiol:isVersionOf opb:00340 ;
+    bqbiol:isPropertyOf local:Na_in .
+local:Na_in bqbiol:is chebi:29101 ;
+    bqbiol:isPartOf local:inside .
+m:v6tb3sm3n bqbiol:isVersionOf opb:00154 ;
+    bqbiol:isPropertyOf local:inside .
+m:vtlkvr240 bqbiol:isVersionOf opb:00295 ;
+    bqbiol:isPropertyOf local:plasma_membrane .
+local:plasma_membrane bqbiol:is go:0005886 .
+m:vziawa9yk bqbiol:isVersionOf opb:00506 ;
+    bqbiol:isPropertyOf local:plasma_membrane .
+m:vns9mivsd bqbiol:isVersionOf opb:00592 ;
+    bqbiol:isPropertyOf local:process_vns9mivsd .
+local:process_vns9mivsd semsim:hasSourceParticipant [ semsim:hasPhysicalEntityReference local:Glc_out ] ;
+    semsim:hasSinkParticipant [ semsim:hasPhysicalEntityReference local:Glc_in ] .
+m:vppqr6r4i bqbiol:isVersionOf opb:00592 ;
+    bqbiol:isPropertyOf local:process_vppqr6r4i .
+local:process_vppqr6r4i semsim:hasSourceParticipant [ semsim:hasPhysicalEntityReference local:Na_out ] ;
+    semsim:hasSinkParticipant [ semsim:hasPhysicalEntityReference local:Na_in ] .
+m:vcryz7wr8 bqbiol:isVersionOf opb:00592 ;
+    bqbiol:isPropertyOf local:process_vcryz7wr8 .
+local:process_vcryz7wr8 semsim:hasSourceParticipant [ semsim:hasPhysicalEntityReference local:Glc_in ] ;
+    semsim:hasSinkParticipant [ semsim:hasPhysicalEntityReference local:Glc_out ] .
+m:vb2ql80ng bqbiol:isVersionOf opb:00592 ;
+    bqbiol:isPropertyOf local:process_vb2ql80ng .
+local:process_vb2ql80ng semsim:hasSourceParticipant [ semsim:hasPhysicalEntityReference local:Na_in ] ;
+    semsim:hasSinkParticipant [ semsim:hasPhysicalEntityReference local:Na_out ] .
+m:vhpqcljwc bqbiol:isVersionOf opb:00318 ;
+    bqbiol:isPropertyOf local:process_vhpqcljwc .
+local:process_vhpqcljwc semsim:hasSinkParticipant [ semsim:hasPhysicalEntityReference local:plasma_membrane ] .

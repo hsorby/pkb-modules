@@ -1,0 +1,19 @@
+# The plasma membrane of wherever the instance is.
+@prefix bqbiol: <http://biomodels.net/biology-qualifiers/> .
+@prefix semsim: <http://bime.uw.edu/semsim/> .
+@prefix opb: <https://identifiers.org/opb/OPB_> .
+@prefix chebi: <https://identifiers.org/chebi/CHEBI:> .
+@prefix go: <https://identifiers.org/go/GO:> .
+@prefix sbo: <https://identifiers.org/sbo/SBO:> .
+@prefix uniprot: <https://identifiers.org/uniprot/> .
+@prefix m: <./membrane.cellml#> .
+@prefix local: <./membrane.ttl#> .
+
+m:membrane bqbiol:is go:0005886 .
+local:entity_self bqbiol:is go:0005886 .
+
+m:vrmrzvst2 bqbiol:isVersionOf opb:00506 ;
+    bqbiol:isPropertyOf local:entity_self .
+m:vw3gp441u bqbiol:isVersionOf opb:00318 ;
+    bqbiol:isPropertyOf local:process_vw3gp441u .
+local:process_vw3gp441u semsim:hasSinkParticipant [ semsim:hasPhysicalEntityReference local:entity_self ] .

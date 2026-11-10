@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cellml.org/cellml/2.0#" name="compartment" id="compartment">
+  <units name="mm2_per_pL">
+    <unit exponent="2" prefix="milli" units="metre"/>
+    <unit exponent="-1" prefix="pico" units="litre"/>
+  </units>
+  <units name="mm2">
+    <unit exponent="2" prefix="milli" units="metre"/>
+  </units>
+  <units name="pL">
+    <unit prefix="pico" units="litre"/>
+  </units>
+  <units name="kPa">
+    <unit prefix="kilo" units="pascal"/>
+  </units>
+  <units name="kPa_per_pL">
+    <unit units="pascal" prefix="kilo"/>
+    <unit units="litre" prefix="pico" exponent="-1"/>
+  </units>
+  <units name="fmol">
+    <unit prefix="femto" units="mole"/>
+  </units>
+  <units name="mmol_per_l">
+    <unit prefix="milli" units="mole"/>
+    <unit exponent="-1" units="litre"/>
+  </units>
+  <units name="mM">
+    <unit units="mmol_per_l"/>
+  </units>
+  <units name="per_fmol">
+    <unit exponent="-1" units="fmol"/>
+  </units>
+  <units name="dim">
+    <unit units="dimensionless"/>
+  </units>
+  <units name="mM_per_s">
+    <unit units="mM"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="fmol_per_mm2_per_s">
+    <unit units="fmol"/>
+    <unit exponent="-1" units="mm2"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <component name="compartment" id="b4da7e">
+    <variable name="Gamma" units="mm2_per_pL" interface="public" id="b4da55"/>
+    <variable name="area" units="mm2" interface="public" id="vl8iyqxiu"/>
+    <variable name="volume" units="pL" interface="public" id="vblbaso2n"/>
+    <variable name="pressure" units="kPa" interface="public" id="b4da56"/>
+    <variable name="C_comp" units="kPa_per_pL" interface="public" id="b4da57"/>
+    <variable name="q_Na" units="fmol" interface="public" id="b4da58"/>
+    <variable name="c_Na" units="mM" initial_value="c_Na_init" interface="public" id="vxtcbzqsk"/>
+    <variable name="q_Glc" units="fmol" interface="public" id="b4da59"/>
+    <variable name="c_Glc" units="mM" initial_value="c_Glc_init" interface="public" id="v4oa7q2cp"/>
+    <variable name="q_K" units="fmol" interface="public" id="b4da5a"/>
+    <variable name="c_K" units="mM" initial_value="c_K_init" interface="public" id="vcyw3564x"/>
+    <variable name="q_ATP" units="fmol" interface="public" id="b4da5b"/>
+    <variable name="c_ATP" units="mM" interface="public" id="vy01tmy4r"/>
+    <variable name="q_ADP" units="fmol" interface="public" id="b4da5c"/>
+    <variable name="c_ADP" units="mM" interface="public" id="v7ew6ixyr"/>
+    <variable name="q_Pi" units="fmol" interface="public" id="b4da5d"/>
+    <variable name="c_Pi" units="mM" interface="public" id="v7iahk7u1"/>
+    <variable name="q_H" units="fmol" interface="public" id="b4da5e"/>
+    <variable name="c_H" units="mM" interface="public" id="vvamlxr8p"/>
+    <variable name="q_Gly" units="fmol" interface="public" id="b4da5f"/>
+    <variable name="c_Gly" units="mM" initial_value="c_Glyc_init" interface="public" id="b4da60"/>
+    <variable name="q_bar_Na" units="dimensionless" interface="public" id="b4da61"/>
+    <variable name="K_Na" units="per_fmol" interface="public" id="b4da62"/>
+    <variable name="q_bar_Glc" units="dimensionless" interface="public" id="b4da63"/>
+    <variable name="K_Glc" units="per_fmol" interface="public" id="b4da64"/>
+    <variable name="q_bar_K" units="dimensionless" interface="public" id="b4da65"/>
+    <variable name="K_K" units="per_fmol" interface="public" id="b4da66"/>
+    <variable name="q_bar_ATP" units="dimensionless" interface="public" id="b4da67"/>
+    <variable name="K_ATP" units="per_fmol" interface="public" id="b4da68"/>
+    <variable name="q_bar_ADP" units="dimensionless" interface="public" id="b4da69"/>
+    <variable name="K_ADP" units="per_fmol" interface="public" id="b4da6a"/>
+    <variable name="q_bar_Pi" units="dimensionless" interface="public" id="b4da6b"/>
+    <variable name="K_Pi" units="per_fmol" interface="public" id="b4da6c"/>
+    <variable name="q_bar_H" units="dimensionless" interface="public" id="b4da6d"/>
+    <variable name="K_H" units="per_fmol" interface="public" id="b4da6e"/>
+    <variable name="q_bar_Gly" units="dimensionless" interface="public" id="b4da6f"/>
+    <variable name="K_Gly" units="per_fmol" interface="public" id="b4da70"/>
+    <variable name="pH" units="dim" interface="public" id="b4da71"/>
+    <variable name="v_consumption" units="mM_per_s" interface="public" id="b4da72"/>
+    <variable name="rate" units="mM_per_s" interface="public" id="b4da73"/>
+    <variable name="t" units="second" interface="public" id="b4da74"/>
+    <variable name="v_Glyc" units="fmol_per_mm2_per_s" interface="public" id="b4da75"/>
+    <variable name="Q_Glyc" units="mM_per_s" interface="public" id="b4da76"/>
+    <variable name="v_Na" units="fmol_per_mm2_per_s" interface="public" id="vj5ag9gtv"/>
+    <variable name="Q_Na" units="mM_per_s" interface="public" id="b4da77"/>
+    <variable name="v_Glc" units="fmol_per_mm2_per_s" interface="public" id="v5esqhg0h"/>
+    <variable name="Q_Glc" units="mM_per_s" interface="public" id="b4da78"/>
+    <variable name="v_K" units="fmol_per_mm2_per_s" interface="public" id="vwv4568eb"/>
+    <variable name="Q_K" units="mM_per_s" interface="public" id="b4da79"/>
+    <variable name="c_Na_init" units="mM" interface="public" id="b4da7a"/>
+    <variable name="c_Glc_init" units="mM" interface="public" id="b4da7b"/>
+    <variable name="c_K_init" units="mM" interface="public" id="b4da7c"/>
+    <variable name="c_Glyc_init" units="mM" interface="public" id="b4da7d"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+      <apply>
+        <eq/>
+        <ci>Gamma</ci>
+        <apply>
+          <divide/>
+          <ci>area</ci>
+          <ci>volume</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>pressure</ci>
+        <apply>
+          <times/>
+          <ci>volume</ci>
+          <ci>C_comp</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_Na</ci>
+        <apply>
+          <times/>
+          <ci>c_Na</ci>
+          <ci>volume</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_Glc</ci>
+        <apply>
+          <times/>
+          <ci>c_Glc</ci>
+          <ci>volume</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_K</ci>
+        <apply>
+          <times/>
+          <ci>c_K</ci>
+          <ci>volume</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_ATP</ci>
+        <apply>
+          <times/>
+          <ci>c_ATP</ci>
+          <ci>volume</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_ADP</ci>
+        <apply>
+          <times/>
+          <ci>c_ADP</ci>
+          <ci>volume</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_Pi</ci>
+        <apply>
+          <times/>
+          <ci>c_Pi</ci>
+          <ci>volume</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_H</ci>
+        <apply>
+          <times/>
+          <ci>c_H</ci>
+          <ci>volume</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_Gly</ci>
+        <apply>
+          <times/>
+          <ci>c_Gly</ci>
+          <ci>volume</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar_Na</ci>
+        <apply>
+          <times/>
+          <ci>K_Na</ci>
+          <ci>q_Na</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar_Glc</ci>
+        <apply>
+          <times/>
+          <ci>K_Glc</ci>
+          <ci>q_Glc</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar_K</ci>
+        <apply>
+          <times/>
+          <ci>K_K</ci>
+          <ci>q_K</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar_ATP</ci>
+        <apply>
+          <times/>
+          <ci>K_ATP</ci>
+          <ci>q_ATP</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar_ADP</ci>
+        <apply>
+          <times/>
+          <ci>K_ADP</ci>
+          <ci>q_ADP</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar_Pi</ci>
+        <apply>
+          <times/>
+          <ci>K_Pi</ci>
+          <ci>q_Pi</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar_H</ci>
+        <apply>
+          <times/>
+          <ci>K_H</ci>
+          <ci>q_H</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar_Gly</ci>
+        <apply>
+          <times/>
+          <ci>K_Gly</ci>
+          <ci>q_Gly</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>c_H</ci>
+        <apply>
+          <times/>
+          <cn cellml:units="mM" type="e-notation">1<sep/>3</cn>
+          <apply>
+            <power/>
+            <cn cellml:units="dim">10</cn>
+            <apply>
+              <minus/>
+              <ci>pH</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_consumption</ci>
+        <piecewise>
+          <piece>
+            <ci>rate</ci>
+            <apply>
+              <gt/>
+              <ci>c_Glc</ci>
+              <cn cellml:units="mM">0.2</cn>
+            </apply>
+          </piece>
+          <otherwise>
+            <cn cellml:units="mM_per_s">0</cn>
+          </otherwise>
+        </piecewise>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>c_Gly</ci>
+        </apply>
+        <apply>
+          <plus/>
+          <apply>
+            <times/>
+            <ci>Gamma</ci>
+            <ci>v_Glyc</ci>
+          </apply>
+          <ci>Q_Glyc</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>c_Na</ci>
+        </apply>
+        <apply>
+          <plus/>
+          <apply>
+            <times/>
+            <ci>Gamma</ci>
+            <ci>v_Na</ci>
+          </apply>
+          <ci>Q_Na</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>c_Glc</ci>
+        </apply>
+        <apply>
+          <minus/>
+          <apply>
+            <plus/>
+            <apply>
+              <times/>
+              <ci>Gamma</ci>
+              <ci>v_Glc</ci>
+            </apply>
+            <ci>Q_Glc</ci>
+          </apply>
+          <ci>v_consumption</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>c_K</ci>
+        </apply>
+        <apply>
+          <plus/>
+          <apply>
+            <times/>
+            <ci>Gamma</ci>
+            <ci>v_K</ci>
+          </apply>
+          <ci>Q_K</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+</model>

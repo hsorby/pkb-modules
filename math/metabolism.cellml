@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cellml.org/cellml/2.0#" name="metabolism" id="metabolism">
+  <units name="dim">
+    <unit units="dimensionless"/>
+  </units>
+  <units name="fmol">
+    <unit prefix="femto" units="mole"/>
+  </units>
+  <units name="per_fmol">
+    <unit exponent="-1" units="fmol"/>
+  </units>
+  <units name="fmol_per_s">
+    <unit units="fmol"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="mmol_per_l">
+    <unit prefix="milli" units="mole"/>
+    <unit exponent="-1" units="litre"/>
+  </units>
+  <units name="mM">
+    <unit units="mmol_per_l"/>
+  </units>
+  <units name="mM_per_s">
+    <unit units="mM"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pL">
+    <unit prefix="pico" units="litre"/>
+  </units>
+  <units name="s">
+    <unit units="second"/>
+  </units>
+  <component name="metabolism" id="b4da8c">
+    <variable name="q_bar__Glc" units="dim" interface="public" id="b4da55"/>
+    <variable name="K_Glc" units="per_fmol" interface="public" id="b4da56"/>
+    <variable name="q_i__Glc" units="fmol" interface="public" id="b4da57"/>
+    <variable name="q_bar__G6P" units="dim" interface="public" id="b4da58"/>
+    <variable name="K_G6P" units="per_fmol" interface="public" id="b4da59"/>
+    <variable name="q_i__G6P" units="fmol" initial_value="q_i__G_init" interface="public" id="b4da5a"/>
+    <variable name="q_bar__G1P" units="dim" interface="public" id="b4da5b"/>
+    <variable name="K_G1P" units="per_fmol" interface="public" id="b4da5c"/>
+    <variable name="q_i__G1P" units="fmol" initial_value="q_i__G1P_init" interface="public" id="b4da5d"/>
+    <variable name="q_bar__UDPglc" units="dim" interface="public" id="b4da5e"/>
+    <variable name="K_UDPglc" units="per_fmol" interface="public" id="b4da5f"/>
+    <variable name="q_i__UDPglc" units="fmol" initial_value="q_i__UDPglc_init" interface="public" id="b4da60"/>
+    <variable name="q_bar__Gly" units="dim" interface="public" id="b4da61"/>
+    <variable name="K_Gly" units="per_fmol" interface="public" id="b4da62"/>
+    <variable name="q_i__Gly" units="fmol" interface="public" id="b4da63"/>
+    <variable name="q_bar__F6P" units="dim" interface="public" id="b4da64"/>
+    <variable name="K_F6P" units="per_fmol" interface="public" id="b4da65"/>
+    <variable name="q_i__F6P" units="fmol" interface="public" id="b4da66"/>
+    <variable name="v_i__GLYr1" units="fmol_per_s" interface="public" id="b4da67"/>
+    <variable name="kappa_r1" units="fmol_per_s" interface="public" id="b4da68"/>
+    <variable name="q_bar__ATP" units="dim" interface="public" id="b4da69"/>
+    <variable name="q_bar__ADP" units="dim" interface="public" id="b4da6a"/>
+    <variable name="q_bar__H" units="dim" interface="public" id="b4da6b"/>
+    <variable name="v_i__GLYr2" units="fmol_per_s" interface="public" id="b4da6c"/>
+    <variable name="kappa_r2" units="fmol_per_s" interface="public" id="b4da6d"/>
+    <variable name="v_i__GLYr12" units="fmol_per_s" interface="public" id="b4da6e"/>
+    <variable name="kappa_r12" units="fmol_per_s" interface="public" id="b4da6f"/>
+    <variable name="v_i__GLYr13" units="fmol_per_s" interface="public" id="b4da70"/>
+    <variable name="kappa_r13" units="fmol_per_s" interface="public" id="b4da71"/>
+    <variable name="q_bar__UTP" units="dim" interface="public" id="b4da72"/>
+    <variable name="q_bar__PPi" units="dim" interface="public" id="b4da73"/>
+    <variable name="v_i__GLYr14" units="fmol_per_s" interface="public" id="b4da74"/>
+    <variable name="kappa_r14" units="fmol_per_s" interface="public" id="b4da75"/>
+    <variable name="q_bar__UDP" units="dim" interface="public" id="b4da76"/>
+    <variable name="v_i__GLYr15" units="fmol_per_s" interface="public" id="b4da77"/>
+    <variable name="kappa_r15" units="fmol_per_s" interface="public" id="b4da78"/>
+    <variable name="q_bar__Pi" units="dim" interface="public" id="b4da79"/>
+    <variable name="v_i__GLYr16" units="fmol_per_s" interface="public" id="b4da7a"/>
+    <variable name="kappa_r16" units="fmol_per_s" interface="public" id="b4da7b"/>
+    <variable name="v_i__GLYr18" units="fmol_per_s" interface="public" id="b4da7c"/>
+    <variable name="kappa_r18" units="fmol_per_s" interface="public" id="b4da7d"/>
+    <variable name="q_bar_H2O" units="dim" interface="public" id="b4da7e"/>
+    <variable name="v_i__Glc" units="mM_per_s" interface="public" id="b4da7f"/>
+    <variable name="volume" units="pL" interface="public" id="b4da80"/>
+    <variable name="v_i__Gly" units="mM_per_s" interface="public" id="b4da81"/>
+    <variable name="t" units="s" interface="public" id="b4da82"/>
+    <variable name="q_i__PPi" units="fmol" initial_value="q_i__PPi_init" interface="public" id="b4da83"/>
+    <variable name="q_i__UDP" units="fmol" initial_value="q_i__UDP_init" interface="public" id="b4da84"/>
+    <variable name="q_i__UTP" units="fmol" initial_value="q_i__UTP_init" interface="public" id="b4da85"/>
+    <variable name="q_i__G_init" units="fmol" interface="public" id="b4da86"/>
+    <variable name="q_i__G1P_init" units="fmol" interface="public" id="b4da87"/>
+    <variable name="q_i__UDPglc_init" units="fmol" interface="public" id="b4da88"/>
+    <variable name="q_i__PPi_init" units="fmol" interface="public" id="b4da89"/>
+    <variable name="q_i__UDP_init" units="fmol" interface="public" id="b4da8a"/>
+    <variable name="q_i__UTP_init" units="fmol" interface="public" id="b4da8b"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+      <apply>
+        <eq/>
+        <ci>q_bar__Glc</ci>
+        <apply>
+          <times/>
+          <ci>K_Glc</ci>
+          <ci>q_i__Glc</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar__G6P</ci>
+        <apply>
+          <times/>
+          <ci>K_G6P</ci>
+          <ci>q_i__G6P</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar__G1P</ci>
+        <apply>
+          <times/>
+          <ci>K_G1P</ci>
+          <ci>q_i__G1P</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar__UDPglc</ci>
+        <apply>
+          <times/>
+          <ci>K_UDPglc</ci>
+          <ci>q_i__UDPglc</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar__Gly</ci>
+        <apply>
+          <times/>
+          <ci>K_Gly</ci>
+          <ci>q_i__Gly</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>q_bar__F6P</ci>
+        <apply>
+          <times/>
+          <ci>K_F6P</ci>
+          <ci>q_i__F6P</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_i__GLYr1</ci>
+        <apply>
+          <times/>
+          <ci>kappa_r1</ci>
+          <apply>
+            <minus/>
+            <apply>
+              <times/>
+              <ci>q_bar__Glc</ci>
+              <ci>q_bar__ATP</ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci>q_bar__G6P</ci>
+              <ci>q_bar__ADP</ci>
+              <ci>q_bar__H</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_i__GLYr2</ci>
+        <apply>
+          <times/>
+          <ci>kappa_r2</ci>
+          <apply>
+            <minus/>
+            <ci>q_bar__G6P</ci>
+            <ci>q_bar__F6P</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_i__GLYr12</ci>
+        <apply>
+          <times/>
+          <ci>kappa_r12</ci>
+          <apply>
+            <minus/>
+            <ci>q_bar__G1P</ci>
+            <ci>q_bar__G6P</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_i__GLYr13</ci>
+        <apply>
+          <times/>
+          <ci>kappa_r13</ci>
+          <apply>
+            <minus/>
+            <apply>
+              <times/>
+              <ci>q_bar__UTP</ci>
+              <ci>q_bar__G1P</ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci>q_bar__UDPglc</ci>
+              <ci>q_bar__PPi</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_i__GLYr14</ci>
+        <apply>
+          <times/>
+          <ci>kappa_r14</ci>
+          <apply>
+            <minus/>
+            <ci>q_bar__UDPglc</ci>
+            <apply>
+              <times/>
+              <ci>q_bar__Gly</ci>
+              <ci>q_bar__UDP</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_i__GLYr15</ci>
+        <apply>
+          <times/>
+          <ci>kappa_r15</ci>
+          <apply>
+            <minus/>
+            <apply>
+              <times/>
+              <ci>q_bar__Gly</ci>
+              <ci>q_bar__Pi</ci>
+            </apply>
+            <ci>q_bar__G1P</ci>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_i__GLYr16</ci>
+        <apply>
+          <times/>
+          <ci>kappa_r16</ci>
+          <apply>
+            <minus/>
+            <ci>q_bar__PPi</ci>
+            <apply>
+              <times/>
+              <cn cellml:units="dimensionless">2</cn>
+              <ci>q_bar__Pi</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_i__GLYr18</ci>
+        <apply>
+          <times/>
+          <ci>kappa_r18</ci>
+          <apply>
+            <minus/>
+            <apply>
+              <times/>
+              <ci>q_bar__G6P</ci>
+              <ci>q_bar_H2O</ci>
+            </apply>
+            <apply>
+              <times/>
+              <ci>q_bar__Glc</ci>
+              <ci>q_bar__Pi</ci>
+            </apply>
+          </apply>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_i__Glc</ci>
+        <apply>
+          <divide/>
+          <apply>
+            <minus/>
+            <ci>v_i__GLYr18</ci>
+            <ci>v_i__GLYr1</ci>
+          </apply>
+          <ci>volume</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>v_i__Gly</ci>
+        <apply>
+          <divide/>
+          <apply>
+            <minus/>
+            <ci>v_i__GLYr14</ci>
+            <ci>v_i__GLYr15</ci>
+          </apply>
+          <ci>volume</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_i__G6P</ci>
+        </apply>
+        <apply>
+          <plus/>
+          <apply>
+            <minus/>
+            <apply>
+              <minus/>
+              <ci>v_i__GLYr1</ci>
+              <ci>v_i__GLYr18</ci>
+            </apply>
+            <ci>v_i__GLYr2</ci>
+          </apply>
+          <ci>v_i__GLYr12</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_i__G1P</ci>
+        </apply>
+        <apply>
+          <minus/>
+          <apply>
+            <plus/>
+            <apply>
+              <minus/>
+              <ci>v_i__GLYr12</ci>
+            </apply>
+            <ci>v_i__GLYr15</ci>
+          </apply>
+          <ci>v_i__GLYr13</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_i__UDPglc</ci>
+        </apply>
+        <apply>
+          <minus/>
+          <ci>v_i__GLYr13</ci>
+          <ci>v_i__GLYr14</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_i__PPi</ci>
+        </apply>
+        <apply>
+          <minus/>
+          <ci>v_i__GLYr13</ci>
+          <ci>v_i__GLYr16</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_i__UDP</ci>
+        </apply>
+        <ci>v_i__GLYr14</ci>
+      </apply>
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>q_i__UTP</ci>
+        </apply>
+        <apply>
+          <minus/>
+          <ci>v_i__GLYr13</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+</model>

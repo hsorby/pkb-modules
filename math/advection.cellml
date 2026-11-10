@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cellml.org/cellml/2.0#" name="advection" id="advection">
+  <units name="mmol_per_l">
+    <unit prefix="milli" units="mole"/>
+    <unit exponent="-1" units="litre"/>
+  </units>
+  <units name="mM">
+    <unit units="mmol_per_l"/>
+  </units>
+  <units name="mM_per_s">
+    <unit units="mM"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="L_per_s">
+    <unit exponent="3" prefix="deci" units="metre"/>
+    <unit exponent="-1" units="second"/>
+  </units>
+  <units name="pL">
+    <unit prefix="pico" units="litre"/>
+  </units>
+  <component name="advection" id="b4da63">
+    <variable name="f_Na_down" units="mM_per_s" interface="public" id="b4da55"/>
+    <variable name="Q_blood" units="L_per_s" interface="public" id="b4da56"/>
+    <variable name="c_Na__up" units="mM" interface="public" id="b4da57"/>
+    <variable name="volume" units="pL" interface="public" id="b4da58"/>
+    <variable name="c_Na__down" units="mM" interface="public" id="b4da59"/>
+    <variable name="f_Na_up" units="mM_per_s" interface="public" id="b4da5a"/>
+    <variable name="f_K_down" units="mM_per_s" interface="public" id="b4da5b"/>
+    <variable name="c_K__up" units="mM" interface="public" id="b4da5c"/>
+    <variable name="c_K__down" units="mM" interface="public" id="b4da5d"/>
+    <variable name="f_K_up" units="mM_per_s" interface="public" id="b4da5e"/>
+    <variable name="f_Glc_down" units="mM_per_s" interface="public" id="b4da5f"/>
+    <variable name="c_Glc__up" units="mM" interface="public" id="b4da60"/>
+    <variable name="c_Glc__down" units="mM" interface="public" id="b4da61"/>
+    <variable name="f_Glc_up" units="mM_per_s" interface="public" id="b4da62"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML" xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+      <apply>
+        <eq/>
+        <ci>f_Na_down</ci>
+        <piecewise>
+          <piece>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci>Q_blood</ci>
+                <ci>c_Na__up</ci>
+              </apply>
+              <ci>volume</ci>
+            </apply>
+            <apply>
+              <gt/>
+              <ci>Q_blood</ci>
+              <cn cellml:units="L_per_s">0</cn>
+            </apply>
+          </piece>
+          <piece>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci>Q_blood</ci>
+                <ci>c_Na__down</ci>
+              </apply>
+              <ci>volume</ci>
+            </apply>
+            <apply>
+              <lt/>
+              <ci>Q_blood</ci>
+              <cn cellml:units="L_per_s">0</cn>
+            </apply>
+          </piece>
+          <otherwise>
+            <cn cellml:units="mM_per_s">0</cn>
+          </otherwise>
+        </piecewise>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>f_Na_up</ci>
+        <apply>
+          <minus/>
+          <ci>f_Na_down</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>f_K_down</ci>
+        <piecewise>
+          <piece>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci>Q_blood</ci>
+                <ci>c_K__up</ci>
+              </apply>
+              <ci>volume</ci>
+            </apply>
+            <apply>
+              <gt/>
+              <ci>Q_blood</ci>
+              <cn cellml:units="L_per_s">0</cn>
+            </apply>
+          </piece>
+          <piece>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci>Q_blood</ci>
+                <ci>c_K__down</ci>
+              </apply>
+              <ci>volume</ci>
+            </apply>
+            <apply>
+              <lt/>
+              <ci>Q_blood</ci>
+              <cn cellml:units="L_per_s">0</cn>
+            </apply>
+          </piece>
+          <otherwise>
+            <cn cellml:units="mM_per_s">0</cn>
+          </otherwise>
+        </piecewise>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>f_K_up</ci>
+        <apply>
+          <minus/>
+          <ci>f_K_down</ci>
+        </apply>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>f_Glc_down</ci>
+        <piecewise>
+          <piece>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci>Q_blood</ci>
+                <ci>c_Glc__up</ci>
+              </apply>
+              <ci>volume</ci>
+            </apply>
+            <apply>
+              <gt/>
+              <ci>Q_blood</ci>
+              <cn cellml:units="L_per_s">0</cn>
+            </apply>
+          </piece>
+          <piece>
+            <apply>
+              <divide/>
+              <apply>
+                <times/>
+                <ci>Q_blood</ci>
+                <ci>c_Glc__down</ci>
+              </apply>
+              <ci>volume</ci>
+            </apply>
+            <apply>
+              <lt/>
+              <ci>Q_blood</ci>
+              <cn cellml:units="L_per_s">0</cn>
+            </apply>
+          </piece>
+          <otherwise>
+            <cn cellml:units="mM_per_s">0</cn>
+          </otherwise>
+        </piecewise>
+      </apply>
+      <apply>
+        <eq/>
+        <ci>f_Glc_up</ci>
+        <apply>
+          <minus/>
+          <ci>f_Glc_down</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+</model>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cellml.org/cellml/2.0#" name="membrane" id="membrane">
+  <units name="J_per_C">
+    <unit units="joule"/>
+    <unit exponent="-1" units="coulomb"/>
+  </units>
+  <units name="mm2">
+    <unit exponent="2" prefix="milli" units="metre"/>
+  </units>
+  <units name="pA_per_mm2">
+    <unit prefix="pico" units="ampere"/>
+    <unit exponent="-1" units="mm2"/>
+  </units>
+  <units name="A_per_pA">
+    <unit units="ampere"/>
+    <unit units="ampere" prefix="pico" exponent="-1"/>
+  </units>
+  <units name="C2_per_J_per_mm2">
+    <unit exponent="2" units="coulomb"/>
+    <unit exponent="-1" units="joule"/>
+    <unit exponent="-1" units="mm2"/>
+  </units>
+  <component name="membrane" id="b4da59">
+    <variable name="t" units="second" interface="public" id="b4da55"/>
+    <variable name="u_e" units="J_per_C" initial_value="u_e_init" interface="public" id="vrmrzvst2"/>
+    <variable name="v_e_tot" units="pA_per_mm2" interface="public" id="vw3gp441u"/>
+    <variable name="scale" units="A_per_pA" interface="public" id="b4da56"/>
+    <variable name="C_m" units="C2_per_J_per_mm2" interface="public" id="b4da57"/>
+    <variable name="u_e_init" units="J_per_C" interface="public" id="b4da58"/>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <apply>
+        <eq/>
+        <apply>
+          <diff/>
+          <bvar>
+            <ci>t</ci>
+          </bvar>
+          <ci>u_e</ci>
+        </apply>
+        <apply>
+          <divide/>
+          <apply>
+            <times/>
+            <ci>v_e_tot</ci>
+            <ci>scale</ci>
+          </apply>
+          <ci>C_m</ci>
+        </apply>
+      </apply>
+    </math>
+  </component>
+</model>
