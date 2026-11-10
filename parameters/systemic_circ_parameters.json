@@ -1,0 +1,11 @@
+{
+ "schema_version": 1,
+ "Q_blood": {"value": 0.083, "units": "L_per_s", "data_reference": "phlynx", "sourced": "no"},
+ "c_Na__up": {"value": 140, "units": "mM", "data_reference": "phlynx", "sourced": "no"},
+ "volume": {"value": 1, "units": "pL", "data_reference": "phlynx", "sourced": "no"},
+ "c_Na__down": {"value": 140, "units": "mM", "data_reference": "phlynx", "sourced": "no"},
+ "c_K__up": {"value": 10, "units": "mM", "data_reference": "phlynx", "sourced": "no"},
+ "c_K__down": {"value": 10, "units": "mM", "data_reference": "phlynx", "sourced": "no"},
+ "c_Glc__up": {"value": 10, "units": "mM", "data_reference": "phlynx", "sourced": "no"},
+ "c_Glc__down": {"value": 10, "units": "mM", "data_reference": "phlynx", "sourced": "no"}
+}
