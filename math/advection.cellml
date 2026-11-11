@@ -11,16 +11,16 @@
     <unit units="mM"/>
     <unit exponent="-1" units="second"/>
   </units>
-  <units name="L_per_s">
-    <unit exponent="3" prefix="deci" units="metre"/>
-    <unit exponent="-1" units="second"/>
-  </units>
   <units name="pL">
     <unit prefix="pico" units="litre"/>
   </units>
+  <units name="pL_per_s">
+    <unit units="pL"/>
+    <unit exponent="-1" units="second"/>
+  </units>
   <component name="advection" id="b4da63">
     <variable name="f_Na_down" units="mM_per_s" interface="public" id="b4da55"/>
-    <variable name="Q_blood" units="L_per_s" interface="public" id="b4da56"/>
+    <variable name="Q_blood" units="pL_per_s" interface="public" id="b4da56"/>
     <variable name="c_Na__up" units="mM" interface="public" id="b4da57"/>
     <variable name="volume" units="pL" interface="public" id="b4da58"/>
     <variable name="c_Na__down" units="mM" interface="public" id="b4da59"/>
